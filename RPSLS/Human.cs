@@ -27,7 +27,7 @@ namespace RPSLS
         //}
             
 
-        public override void AssignGesture()
+        public override void AssignGesture()    //could delete this
         {
             base.AssignGesture();
         }

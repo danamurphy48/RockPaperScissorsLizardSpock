@@ -23,9 +23,10 @@ namespace RPSLS
             ChooseOpponent();
             player1.AssignGesture();
             player2.AssignGesture();
-            //CompareGestures();
+            CompareGestures();
+            DisplayGameWinner();
         }
-        public void DisplayRules() //re-write or use list to populate?
+        public void DisplayRules()
         {
             Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock.");
             Console.WriteLine("You can choose a single player or multiplayer game.");
@@ -64,17 +65,65 @@ namespace RPSLS
                     Console.WriteLine("Please choose either Single Player or Multiplayer");
                     break;
             }
-            //public void ChoosePlayer()
-            //{
-            //    string input;
-            //    do
-            //    {
-            //        Console.WriteLine("Please choose single player or multiplayer game:");
-            //    }    
-
-            //}
         }
 
-        
+        public void CompareGestures()
+        {
+            if(player1.choice == player2.choice)
+            {
+                Console.WriteLine("Tie!");
+            }
+            else if (player1.choice == "Rock")
+            {
+                if(player2.choice == "Scissors" || player2.choice == "Lizard")
+                {
+                    player1.score++;
+                }
+            }
+            else if (player1.choice == "Paper")
+            {
+                if(player2.choice == "Rock" || player2.choice == "Spock")
+                {
+                    player1.score++;
+                }
+            }
+            else if(player1.choice == "Scissors")
+            {
+                if(player2.choice == "Paper" || player2.choice == "Lizard")
+                {
+                    player1.score++;
+                }
+            }
+            else if (player1.choice == "Lizard")
+            {
+                if (player2.choice == "Spock" || player2.choice == "Paper")
+                {
+                    player1.score++;
+                }
+            }
+            else if (player1.choice == "Spock")
+            {
+                if(player2.choice == "Scissors" || player2.choice == "Rock")
+                {
+                    player1.score++;
+                }
+            }
+            else
+            {
+                player2.score++;
+            }
+        }
+
+        public void DisplayGameWinner()
+        {
+            if (player1.score == 3)
+            {
+                Console.WriteLine("Player One wins!");
+            }
+            else if (player2.score == 3)
+            {
+                Console.WriteLine("Player Two wins!");
+            }
+        }
     }
 }

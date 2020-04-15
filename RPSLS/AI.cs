@@ -19,10 +19,6 @@ namespace RPSLS
         
         public override void AssignGesture()   
         {
-            //Random
-            //AssignGesture();
-            //string gestures = gesture.; //????????
-
             int randomNumber = random.Next(0, 4); //these random numbers will represent index of gestures list
             choice = gestures[randomNumber]; 
         }

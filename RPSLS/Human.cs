@@ -19,17 +19,48 @@ namespace RPSLS
         }
 
         //member methods
-
-        //public void ChooseName()
-        //{
-        //    Console.WriteLine("Please enter a name");
-        //    public string name = Console.ReadLine();
-        //}
-
-
-        public override void AssignGesture()    //could delete this b/c task accomplished in parent, but kept to show inheritance
+        public override void AssignGesture()
         {
-            base.AssignGesture();
+            Console.WriteLine("Choose a gesture to perform:");
+            DisplayGestureOptions();
+            bool validChoice = false;
+
+            while (!validChoice)
+            {
+                string userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "Rock":
+                        Console.WriteLine("You have chosen Rock");
+                        choice = "Rock";
+                        validChoice = true;
+                        break;
+                    case "Paper":
+                        Console.WriteLine("You have chosen Paper");
+                        choice = "Paper";
+                        validChoice = true;
+                        break;
+                    case "Scissors":
+                        Console.WriteLine("You have chosen Scissors");
+                        choice = "Scissors";
+                        validChoice = true;
+                        break;
+                    case "Lizard":
+                        Console.WriteLine("You have chosen Lizard");
+                        choice = "Lizard";
+                        validChoice = true;
+                        break;
+                    case "Spock":
+                        Console.WriteLine("You have chosen Spock");
+                        choice = "Spock";
+                        validChoice = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please choose Rock, Paper, Scissors, Lizard, or Spock.");
+                        validChoice = false;
+                        break;
+                }
+            }
         }
     }
 }

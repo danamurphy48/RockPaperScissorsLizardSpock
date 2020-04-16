@@ -21,9 +21,6 @@ namespace RPSLS
         {
             DisplayRules();
             ChooseOpponent();
-            player1.AssignGesture();
-            player2.AssignGesture();
-            CompareGestures();
             DisplayCurrentScore();
             DisplayGameWinner();
         }
@@ -42,7 +39,6 @@ namespace RPSLS
         public void ChooseOpponent()
         {
             Console.WriteLine("Please choose to play single player or multiplayer");
-              //necessary to get userinput? switch or do while. Need to validate user data--cycle if selecting incorrect option
             bool validChoice = false;
             while (!validChoice)
             {
@@ -78,36 +74,37 @@ namespace RPSLS
             }
         }
 
-        public void CompareGestures()   //when HvH, no score first round and no indicator
+        public void CompareGestures()
         {
-            if(player1.choice == player2.choice)
+            if (player1.choice == player2.choice)
             {
                 Console.WriteLine("Tie!");
             }
-            else if (player1.choice == "Rock")
+            else if (player1.choice == "Rock" && (player2.choice == "Scissors" || player2.choice == "Lizard"))
             {
-                if(player2.choice == "Scissors" || player2.choice == "Lizard")
-                {
-                    player1.score++;
-                    Console.WriteLine("Player One scored a point");
-                }
-                else
-                {
-                    player2.score++;
-                    Console.WriteLine("Player Two scored a point");
-                }
+                //if(player2.choice == "Scissors" || player2.choice == "Lizard") ***other option to accomplish same thing, fewer lines of code***
+                //{
+                //    player1.score++;
+                //    Console.WriteLine("Player One scored a point.");
+                //}
+                //else
+                //{
+                //    player2.score++;
+                //    Console.WriteLine("Player Two scored a point.");
+                //}
+                player1.score++;
             }
             else if (player1.choice == "Paper")
             {
                 if(player2.choice == "Rock" || player2.choice == "Spock")
                 {
                     player1.score++;
-                    Console.WriteLine("Player One scored a point");
+                    Console.WriteLine("Player One scored a point.");
                 }
                 else
                 {
                     player2.score++;
-                    Console.WriteLine("Player Two scored a point");
+                    Console.WriteLine("Player Two scored a point.");
                 }
             }
             else if(player1.choice == "Scissors")
@@ -115,12 +112,12 @@ namespace RPSLS
                 if(player2.choice == "Paper" || player2.choice == "Lizard")
                 {
                     player1.score++;
-                    Console.WriteLine("Player One scored a point");
+                    Console.WriteLine("Player One scored a point.");
                 }
                 else
                 {
                     player2.score++;
-                    Console.WriteLine("Player Two scored a point");
+                    Console.WriteLine("Player Two scored a point.");
                 }
             }
             else if (player1.choice == "Lizard")
@@ -128,12 +125,12 @@ namespace RPSLS
                 if (player2.choice == "Spock" || player2.choice == "Paper")
                 {
                     player1.score++;
-                    Console.WriteLine("Player One scored a point");
+                    Console.WriteLine("Player One scored a point.");
                 }
                 else
                 {
                     player2.score++;
-                    Console.WriteLine("Player Two scored a point");
+                    Console.WriteLine("Player Two scored a point.");
                 }
             }
             else if (player1.choice == "Spock")
@@ -141,19 +138,19 @@ namespace RPSLS
                 if(player2.choice == "Scissors" || player2.choice == "Rock")
                 {
                     player1.score++;
-                    Console.WriteLine("Player One scored a point");
+                    Console.WriteLine("Player One scored a point.");
                 }
                 else
                 {
                     player2.score++;
-                    Console.WriteLine("Player Two scored a point");
+                    Console.WriteLine("Player Two scored a point.");
                 }
             }
-            //else
-            //{
-            //    player2.score++;
-            //    Console.WriteLine("Player Two scored a point");
-            //}
+            else
+            {
+                player2.score++;
+                Console.WriteLine("Player Two scored a point");
+            }
         }
 
         public void DisplayCurrentScore()

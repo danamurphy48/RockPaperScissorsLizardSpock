@@ -68,7 +68,7 @@ namespace RPSLS
             }
         }
 
-        public void CompareGestures()
+        public void CompareGestures()   //when HvH, no score first round and no indicator
         {
             if(player1.choice == player2.choice)
             {
@@ -123,7 +123,7 @@ namespace RPSLS
 
         public void DisplayCurrentScore()   //endless loop and scores aren't stacking
         {
-            while (player1.score < 3 || player2.score < 3)
+            while (player1.score <= 3 || player2.score <= 3)
             {
                 player1.AssignGesture();
                 player2.AssignGesture();

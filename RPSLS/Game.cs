@@ -81,6 +81,11 @@ namespace RPSLS
                     player1.score++;
                     Console.WriteLine("Player One scored a point");
                 }
+                else
+                {
+                    player2.score++;
+                    Console.WriteLine("Player Two scored a point");
+                }
             }
             else if (player1.choice == "Paper")
             {
@@ -88,6 +93,11 @@ namespace RPSLS
                 {
                     player1.score++;
                     Console.WriteLine("Player One scored a point");
+                }
+                else
+                {
+                    player2.score++;
+                    Console.WriteLine("Player Two scored a point");
                 }
             }
             else if(player1.choice == "Scissors")
@@ -97,6 +107,11 @@ namespace RPSLS
                     player1.score++;
                     Console.WriteLine("Player One scored a point");
                 }
+                else
+                {
+                    player2.score++;
+                    Console.WriteLine("Player Two scored a point");
+                }
             }
             else if (player1.choice == "Lizard")
             {
@@ -104,6 +119,11 @@ namespace RPSLS
                 {
                     player1.score++;
                     Console.WriteLine("Player One scored a point");
+                }
+                else
+                {
+                    player2.score++;
+                    Console.WriteLine("Player Two scored a point");
                 }
             }
             else if (player1.choice == "Spock")
@@ -113,18 +133,25 @@ namespace RPSLS
                     player1.score++;
                     Console.WriteLine("Player One scored a point");
                 }
+                else
+                {
+                    player2.score++;
+                    Console.WriteLine("Player Two scored a point");
+                }
             }
-            else
-            {
-                player2.score++;
-                Console.WriteLine("Player Two scored a point");
-            }
+            //else
+            //{
+            //    player2.score++;
+            //    Console.WriteLine("Player Two scored a point");
+            //}
         }
 
         public void DisplayCurrentScore()   //endless loop and scores aren't stacking
         {
-            while (player1.score <= 3 || player2.score <= 3)
+            while (player1.score < 3 && player2.score < 3)
             {
+                Console.WriteLine("Player One has a score of " + player1.score);
+                Console.WriteLine("Player Two has a score of " + player2.score);
                 player1.AssignGesture();
                 player2.AssignGesture();
                 CompareGestures();
@@ -134,12 +161,15 @@ namespace RPSLS
         {
             if (player1.score == 3)
             {
+                Console.WriteLine("Player One has a score of " + player1.score);
                 Console.WriteLine("Player One wins!");
             }
             else if (player2.score == 3)
             {
+                Console.WriteLine("Player Two has a score of " + player2.score);
                 Console.WriteLine("Player Two wins!");
             }
+            Console.ReadLine();
         }
     }
 }

@@ -20,7 +20,8 @@ namespace RPSLS
         public override void AssignGesture()   
         {
             int randomNumber = random.Next(0, 4); //these random numbers will represent index of gestures list
-            choice = gestures[randomNumber]; 
+            choice = gestures[randomNumber];
+            Console.WriteLine("Player Two chose " + choice);
         }
     }
 }

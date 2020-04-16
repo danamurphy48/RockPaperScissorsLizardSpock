@@ -25,9 +25,9 @@ namespace RPSLS
         //    Console.WriteLine("Please enter a name");
         //    public string name = Console.ReadLine();
         //}
-            
 
-        public override void AssignGesture()    //could delete this
+
+        public override void AssignGesture()    //could delete this b/c task accomplished in parent, but kept to show inheritance
         {
             base.AssignGesture();
         }

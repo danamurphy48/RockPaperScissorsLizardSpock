@@ -42,29 +42,39 @@ namespace RPSLS
         public void ChooseOpponent()
         {
             Console.WriteLine("Please choose to play single player or multiplayer");
-            string userInput = Console.ReadLine();  //necessary to get userinput? switch or do while
-
-            switch (userInput)
+              //necessary to get userinput? switch or do while. Need to validate user data--cycle if selecting incorrect option
+            bool validChoice = false;
+            while (!validChoice)
             {
-                case "Single Player":
-                    Console.WriteLine("You have chosen to play against AI");
-                    player2 = new AI();
-                    break;
-                case "Multiplayer":
-                    Console.WriteLine("You have chosen to play against another human");
-                    player2 = new Human();
-                    break;
-                case "single player":
-                    Console.WriteLine("You have chosen a single player game against AI");
-                    player2 = new AI();
-                    break;
-                case "multiplayer":
-                    Console.WriteLine("You have chosen to play against another human");
-                    player2 = new Human();
-                    break;
-                default:
-                    Console.WriteLine("Please choose either Single Player or Multiplayer");
-                    break;
+                string userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "Single Player":
+                        Console.WriteLine("You have chosen to play against AI");
+                        player2 = new AI();
+                        validChoice = true;
+                        break;
+                    case "Multiplayer":
+                        Console.WriteLine("You have chosen to play against another human");
+                        player2 = new Human();
+                        validChoice = true;
+                        break;
+                    case "single player":
+                        Console.WriteLine("You have chosen a single player game against AI");
+                        player2 = new AI();
+                        validChoice = true;
+                        break;
+                    case "multiplayer":
+                        Console.WriteLine("You have chosen to play against another human");
+                        player2 = new Human();
+                        validChoice = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please choose either Single Player or Multiplayer");
+                        validChoice = false;
+                        break;
+                }
             }
         }
 
@@ -146,7 +156,7 @@ namespace RPSLS
             //}
         }
 
-        public void DisplayCurrentScore()   //endless loop and scores aren't stacking
+        public void DisplayCurrentScore()
         {
             while (player1.score < 3 && player2.score < 3)
             {

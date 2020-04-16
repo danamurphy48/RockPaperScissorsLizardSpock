@@ -16,7 +16,6 @@ namespace RPSLS
             score = 0;
         }
         //member methods
-        
         public override void AssignGesture()   
         {
             int randomNumber = random.Next(0, 4); 

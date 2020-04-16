@@ -82,17 +82,8 @@ namespace RPSLS
             }
             else if (player1.choice == "Rock" && (player2.choice == "Scissors" || player2.choice == "Lizard"))
             {
-                //if(player2.choice == "Scissors" || player2.choice == "Lizard") ***other option to accomplish same thing, fewer lines of code***
-                //{
-                //    player1.score++;
-                //    Console.WriteLine("Player One scored a point.");
-                //}
-                //else
-                //{
-                //    player2.score++;
-                //    Console.WriteLine("Player Two scored a point.");
-                //}
                 player1.score++;
+                Console.WriteLine("Player One scored a point.");
             }
             else if (player1.choice == "Paper")
             {
@@ -157,23 +148,21 @@ namespace RPSLS
         {
             while (player1.score < 3 && player2.score < 3)
             {
-                Console.WriteLine("Player One has a score of " + player1.score);
-                Console.WriteLine("Player Two has a score of " + player2.score);
                 player1.AssignGesture();
                 player2.AssignGesture();
                 CompareGestures();
+                Console.WriteLine("Player One has a score of " + player1.score);
+                Console.WriteLine("Player Two has a score of " + player2.score);
             }
         }
         public void DisplayGameWinner()
         {
             if (player1.score == 3)
             {
-                Console.WriteLine("Player One has a score of " + player1.score);
                 Console.WriteLine("Player One wins!");
             }
             else if (player2.score == 3)
             {
-                Console.WriteLine("Player Two has a score of " + player2.score);
                 Console.WriteLine("Player Two wins!");
             }
             Console.ReadLine();

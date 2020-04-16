@@ -16,8 +16,9 @@ namespace RPSLS
 
         //constructor
         public Player()
-        {
+        {  
             gestures = new List<string>();
+            PopulateGestureOptions();
         }
 
         //member methods
@@ -39,7 +40,7 @@ namespace RPSLS
         public virtual void AssignGesture()   //switch statement? do while? to prevent bad user data
         {
             Console.WriteLine("Choose a gesture to perform: ");
-            choice = Console.ReadLine();
+            choice = Console.ReadLine();    //switch statement
 
         }
         public virtual void MakeGesture()

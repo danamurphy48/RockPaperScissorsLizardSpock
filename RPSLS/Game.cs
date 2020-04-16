@@ -24,6 +24,7 @@ namespace RPSLS
             player1.AssignGesture();
             player2.AssignGesture();
             CompareGestures();
+            DisplayCurrentScore();
             DisplayGameWinner();
         }
         public void DisplayRules()
@@ -78,6 +79,7 @@ namespace RPSLS
                 if(player2.choice == "Scissors" || player2.choice == "Lizard")
                 {
                     player1.score++;
+                    Console.WriteLine("Player One scored a point");
                 }
             }
             else if (player1.choice == "Paper")
@@ -85,6 +87,7 @@ namespace RPSLS
                 if(player2.choice == "Rock" || player2.choice == "Spock")
                 {
                     player1.score++;
+                    Console.WriteLine("Player One scored a point");
                 }
             }
             else if(player1.choice == "Scissors")
@@ -92,6 +95,7 @@ namespace RPSLS
                 if(player2.choice == "Paper" || player2.choice == "Lizard")
                 {
                     player1.score++;
+                    Console.WriteLine("Player One scored a point");
                 }
             }
             else if (player1.choice == "Lizard")
@@ -99,6 +103,7 @@ namespace RPSLS
                 if (player2.choice == "Spock" || player2.choice == "Paper")
                 {
                     player1.score++;
+                    Console.WriteLine("Player One scored a point");
                 }
             }
             else if (player1.choice == "Spock")
@@ -106,14 +111,25 @@ namespace RPSLS
                 if(player2.choice == "Scissors" || player2.choice == "Rock")
                 {
                     player1.score++;
+                    Console.WriteLine("Player One scored a point");
                 }
             }
             else
             {
                 player2.score++;
+                Console.WriteLine("Player Two scored a point");
             }
         }
 
+        public void DisplayCurrentScore()   //endless loop and scores aren't stacking
+        {
+            while (player1.score < 3 || player2.score < 3)
+            {
+                player1.AssignGesture();
+                player2.AssignGesture();
+                CompareGestures();
+            }
+        }
         public void DisplayGameWinner()
         {
             if (player1.score == 3)
